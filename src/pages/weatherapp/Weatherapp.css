@@ -5,6 +5,7 @@
     margin-top: 15px;
     border-radius: 12px;
     background-image: linear-gradient(180deg,#4ac62e 0%, #1eafc0 60%);
+    transition: width 0.5s ease, height 0.5s ease;
 }
 .top-bar{
     display: flex;
@@ -89,7 +90,7 @@
         width: 100%;
         height: auto;
         margin-top: 0;
-        border-radius: 0;
+        border-radius: 12px;
     }
 
     .top-bar input {

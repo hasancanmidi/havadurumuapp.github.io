@@ -10,9 +10,14 @@ const WeatherApp = () => {
     const [city, setCity] = useState('Trabzon');
     const [weatherData, setWeatherData] = useState(null);
     const [wicon, setWicon] = useState(null);
+    const [isLocationBased, setIsLocationBased] = useState(true); // Yeni state ekleyin
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(success, handleError, {timeout: 10000});
+        if (isLocationBased) {
+            navigator.geolocation.getCurrentPosition(success, handleError, {timeout: 10000});
+        } else {
+            fetchWeather();
+        }
 
         async function success(position) {
             try {
@@ -32,7 +37,7 @@ const WeatherApp = () => {
         function fetchWeather() {
             fetchWeatherByCity(city).then(updateWeatherData).catch(console.error);
         }
-    }, [city]);
+    }, [city, isLocationBased]); // isLocationBased'i bağımlılıklara ekleyin
 
     function updateWeatherData(data) {
         setWeatherData(data);
@@ -42,14 +47,10 @@ const WeatherApp = () => {
     const handleSearch = async () => {
         const inputElement = document.getElementsByClassName("cityInput")[0];
         const newCity = inputElement.value;
+        setIsLocationBased(false); // Kullanıcı manuel bir arama yaptığında, aramayı konum bazlı olmayan olarak işaretle
         setCity(newCity);
-        try {
-            const data = await fetchWeatherByCity(newCity);
-            updateWeatherData(data);
-        } catch (error) {
-            console.error(error);
-        }
     };
+
 
     return (
         <div className="container">
