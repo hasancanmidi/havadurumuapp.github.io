@@ -35,7 +35,7 @@
     border-radius: 40px;
     cursor: pointer;
 }
-.weatheer-image{
+.weather-image{
     margin-top:29px;
     display: flex;
     justify-content: center;
@@ -64,7 +64,6 @@
     margin-top: 50px;
     color: white;
     display: flex;
-
     justify-content: center;
 }
 .element{
@@ -83,4 +82,5 @@
 }
 .icon{
     margin-top: 10px;
+    margin-right: 10px;
 }

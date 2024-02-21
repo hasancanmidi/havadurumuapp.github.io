@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://hasancanmidi.github.io/havadurumuapp",
+  "homepage": "https://hasancanmidi.github.io/havadurumuapp/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
